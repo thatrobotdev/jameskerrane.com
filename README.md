@@ -1,2 +1,2 @@
 # jameskerrane.com
- My personal website, showcasing code, art, and physics!
+My personal website, showcasing code, art, and physics!

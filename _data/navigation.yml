@@ -1,0 +1,9 @@
+- name: Home
+- name: Blog
+  link: blog
+- name: Code
+  link: code
+- name: Art
+  link: art
+- name: Physics
+  link: physics

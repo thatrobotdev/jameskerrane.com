@@ -1,0 +1,43 @@
+# Jekyll config! (https://jekyllrb.com/docs/configuration/)
+#
+# This config file has settings that affect the entire site.
+#
+# This file is *NOT* reloaded automatically with
+# 'bundle exec jekyll serve'.
+
+# Site settings
+# Accessed via {{ site.title }}, {{ site.email }}, etc.
+title: JP's Projects
+description: >-
+  Hello! My name is James Kerrane, or JP, and this is my personal site!
+url: "https://jameskerrane.com" # base hostname & protocol
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# GitHub Pages defaults
+lsi: false
+safe: true
+source: ""
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

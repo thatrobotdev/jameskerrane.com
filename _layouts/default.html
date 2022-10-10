@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="{{ site.description }}" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
+    <link rel="icon" href="img/favicon.png">
+
+    <!-- <meta name="theme-color" content=""> -->
+    <meta property="og:title" content=" {{ site.title }}" />
+    <meta property="og:description" content="{{ site.description }}" />
+    <!-- <meta property="og:image" content="" />
+
+    <meta name="twitter:card" content="">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content=""> -->
+    <meta name="twitter:description" content="{{ site.description }}">
+    <!-- <meta name="twitter:image" content=""> -->
+</head>
+
+<body>
+    {% include navigation.html %}
+    {{ content }}
+</body>
+
+</html>
