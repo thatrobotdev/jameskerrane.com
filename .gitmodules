@@ -1,0 +1,6 @@
+[submodule "static_folders/ChatPrototype"]
+	path = static_folders/ChatPrototype
+	url = https://github.com/thatrobotdev/ChatPrototype
+[submodule "static_folders/MyselfInSixWords"]
+	path = static_folders/MyselfInSixWords
+	url = https://github.com/thatrobotdev/MyselfInSixWords
