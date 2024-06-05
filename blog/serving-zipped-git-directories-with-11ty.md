@@ -29,47 +29,84 @@ $ git submodule add https://github.com/thatrobotdev/OnboardingFlow
 
 Next, we'll use the Node.js File System API along with a package called node-archiver to zip each project in the "static_folders" directory to a new folder called "static" during the site build.
 
-`.eleventy.js`
+For this, create a new [CommonJS module](https://nodejs.org/api/modules.html#modules-commonjs-modules) at `config/zipStaticFolders.js` to hold our function for zipping directories.
+
+`config/zipStaticFolders.js`
 
 ```js
-function zipStaticFolders(folderPathName) {
-    // Import required modules
+module.exports = function zipStaticFolders() {
+    // Inport required modules
     const fs = require('fs');
     const path = require('path');
     const archiver = require('archiver');
 
-    const folderPath = path.resolve(__dirname, folderPathName);
+    const inputFolderPath = path.resolve("static_folders");
+    const outputFolderPath = path.resolve("static");
 
     // Read static folders
-    const results = fs.readdirSync(folderPath);
+    const results = fs.readdirSync(inputFolderPath);
 
     // Get all folders inside static folders
-    const folders = results.filter(res => fs.lstatSync(path.resolve(folderPath, res)).isDirectory());
+    const folders = results.filter(res => fs.lstatSync(path.resolve(inputFolderPath, res)).isDirectory());
 
     // Create a .zip file for each static folder
     folders.forEach(folder => {
         // Create a file to stream archive data to.
-        const output = fs.createWriteStream(__dirname + `/static/${folder}.zip`);
+        try {
+            if (!fs.existsSync(outputFolderPath)) {
+                fs.mkdirSync(outputFolderPath);
+            }
+        } catch (err) {
+            console.error(err);
+        }
+        const output = fs.createWriteStream(`${outputFolderPath}/${folder}.zip`);
         const archive = archiver('zip', {
-            zlib: { level: 9 } // Set compression level
+            zlib: { level: 9 } // Sets the compression level.
         });
 
-        // Configure archive settings...
+        // Listen for all archive data to be written
+        // 'close' event is fired only when a file descriptor is involved
+        output.on('close', function () {
+            console.log(`[zipStaticDirectories] Zipped ${inputFolderPath}/${folder} to ${outputFolderPath}/${folder}.zip (${archive.pointer()} total bytes)`);
+        });
+
+        // Catch warnings (ie stat failures and other non-blocking errors)
+        archive.on('warning', function (err) {
+            if (err.code === 'ENOENT') {
+                // log warning
+            } else {
+                // throw error
+                throw err;
+            }
+        });
+
+        // Catch this error explicitly
+        archive.on('error', function (err) {
+            throw err;
+        });
 
         // Pipe archive data to the file
         archive.pipe(output);
 
         // Add the archive to the zip
-        archive.directory(`${folderPathName}/${folder}/`, false)
+        archive.directory(`${inputFolderPath}/${folder}/`, false)
 
-        // Finalise the archive
+        // Finalize the archive (ie we are done appending files but streams have to finish yet)
+        // 'close', 'end' or 'finish' may be fired right after calling this method so register to them beforehand
         archive.finalize();
     });
 }
+```
 
-// Run zipStaticFolders while building site
+Now, we can import our zipStaticFolders function in the `.eleventy.js` config file so that it runs when the site builds!
+
+`.eleventy.js`
+
+```js
+const zipStaticFolders = require("./config/zipStaticFolders")
+
 module.exports = function (eleventyConfig) {
-    zipStaticFolders("static_folders");
+    zipStaticFolders();
 };
 ```
 
@@ -81,7 +118,7 @@ During the 11ty's site's build step, we'll use [11ty's Passthrough File Copy](ht
 
 ```js
 module.exports = function (eleventyConfig) {
-    zipStaticFolders("static_folders");
+    zipStaticFolders();
 
     // Output directory: _site
 
