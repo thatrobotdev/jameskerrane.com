@@ -2,9 +2,9 @@
 
 My personal website!
 
-## Running Locally
+This site is built using the static site generator [Eleventy](https://www.11ty.dev/) site generator (using the [v2.0.1 release](https://www.11ty.dev/blog/eleventy-v2/)). Built on top of [11ty/eleventy-base-blog](https://github.com/11ty/eleventy-base-blog).
 
-This site is built using the static site generator [Eleventy](https://www.11ty.dev/).
+## Running Locally
 
 ```sh
 npm install # Install dependencies with npm (https://www.npmjs.com)

@@ -1,5 +1,11 @@
 ---
 title: Serving zipped git directories with 11ty
+draft: true
+description: description
+date: 2024-06-04
+tags:
+  - 11ty
+  - git
 ---
 
 Welcome to my first blog post on jameskerrane.com! Today, I'd like to share a feature I added to the site while building its blog.

@@ -1,19 +1,41 @@
 {
-  "name": "jameskerrane.com",
-  "version": "1.0.0",
-  "description": "My personal website!",
-  "main": "index.js",
-  "scripts": {
-    "build": "node config/zipStaticFolders.js && npx @11ty/eleventy",
-    "build:gh-pages": "npx @11ty/eleventy",
-    "start": "node config/zipStaticFolders.js && npx @11ty/eleventy --serve",
-    "debug": "node config/zipStaticFolders.js && DEBUG=Eleventy* npx @11ty/eleventy"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "archiver": "^7.0.1"
-  }
+	"name": "jameskerrane.com",
+	"version": "1.0.0",
+	"description": "My personal website!",
+	"scripts": {
+		"build": "node config/zipStaticFolders.js && npx @11ty/eleventy",
+		"build-ghpages": "npx @11ty/eleventy",
+		"start": "node config/zipStaticFolders.js && npx @11ty/eleventy --serve --quiet",
+		"debug": "node config/zipStaticFolders.js && DEBUG=Eleventy* npx @11ty/eleventy",
+		"debugstart": "node config/zipStaticFolders.js && DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
+		"benchmark": "node config/zipStaticFolders.js && DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/thatrobotdev/jameskerrane.com.git"
+	},
+	"author": {
+		"name": "James Kerrane",
+		"email": "hi@jameskerrane.com",
+		"url": "https://jameskerrane.com/"
+	},
+	"license": "MIT",
+	"engines": {
+		"node": ">=14"
+	},
+	"bugs": {
+		"url": "https://github.com/thatrobotdev/jameskerrane.com/issues"
+	},
+	"homepage": "https://www.jameskerrane.com",
+	"devDependencies": {
+		"@11ty/eleventy": "^2.0.1",
+		"@11ty/eleventy-img": "^3.1.1",
+		"@11ty/eleventy-navigation": "^0.3.5",
+		"@11ty/eleventy-plugin-bundle": "^1.0.4",
+		"@11ty/eleventy-plugin-rss": "^1.2.0",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+		"archiver": "^7.0.1",
+		"luxon": "^3.3.0",
+		"markdown-it-anchor": "^8.6.7"
+	}
 }
