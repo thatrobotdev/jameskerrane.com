@@ -2,7 +2,7 @@ const zipStaticFolders = require("./config/zipStaticFolders")
 
 module.exports = function (eleventyConfig) {
 
-    zipStaticFolders("static_folders");
+    zipStaticFolders();
 
 	// Output directory: _site
 

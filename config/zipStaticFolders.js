@@ -7,24 +7,32 @@
     The "static" directory is later copied over to the resulting build of the
     site with 11ty's Passthrough File Copy (https://www.11ty.dev/docs/copy/)
 */
-module.exports = function zipStaticFolders(folderPathName) {
+module.exports = function zipStaticFolders() {
     // Inport required modules
     const fs = require('fs');
     const path = require('path');
     const archiver = require('archiver');
 
-    const folderPath = path.resolve(__dirname, "../", folderPathName);
+    const inputFolderPath = path.resolve("static_folders");
+    const outputFolderPath = path.resolve("static");
 
     // Read static folders
-    const results = fs.readdirSync(folderPath);
+    const results = fs.readdirSync(inputFolderPath);
 
     // Get all folders inside static folders
-    const folders = results.filter(res => fs.lstatSync(path.resolve(folderPath, res)).isDirectory());
+    const folders = results.filter(res => fs.lstatSync(path.resolve(inputFolderPath, res)).isDirectory());
 
     // Create a .zip file for each static folder
     folders.forEach(folder => {
         // Create a file to stream archive data to.
-        const output = fs.createWriteStream(__dirname + `/../static/${folder}.zip`);
+        try {
+            if (!fs.existsSync(outputFolderPath)) {
+                fs.mkdirSync(outputFolderPath);
+            }
+        } catch (err) {
+            console.error(err);
+        }
+        const output = fs.createWriteStream(`${outputFolderPath}/${folder}.zip`);
         const archive = archiver('zip', {
             zlib: { level: 9 } // Sets the compression level.
         });
@@ -32,7 +40,7 @@ module.exports = function zipStaticFolders(folderPathName) {
         // Listen for all archive data to be written
         // 'close' event is fired only when a file descriptor is involved
         output.on('close', function () {
-            console.log(`[zipStaticDirectories] Zipped ${folderPath}/${folder} to static/${folder}.zip (${archive.pointer()} total bytes)`);
+            console.log(`[zipStaticDirectories] Zipped ${inputFolderPath}/${folder} to ${outputFolderPath}/${folder}.zip (${archive.pointer()} total bytes)`);
         });
 
         // Catch warnings (ie stat failures and other non-blocking errors)
@@ -54,7 +62,7 @@ module.exports = function zipStaticFolders(folderPathName) {
         archive.pipe(output);
 
         // Add the archive to the zip
-        archive.directory(`${folderPathName}/${folder}/`, false)
+        archive.directory(`${inputFolderPath}/${folder}/`, false)
 
         // Finalize the archive (ie we are done appending files but streams have to finish yet)
         // 'close', 'end' or 'finish' may be fired right after calling this method so register to them beforehand
