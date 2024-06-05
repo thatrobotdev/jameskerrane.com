@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="James Kerrane's personal website.">
+    <title></title>
+</head>
+
+<body>
+    <header>
+        <h1>Serving zipped git directories with 11ty</h1>
+    </header>
+    <main>
+        <p>Welcome to my first blog post on jameskerrane.com! Today, I'd like to share a feature I added to the site while building its blog.</p>
+<p>As I've been working through Apple's <a href="https://developer.apple.com/tutorials/develop-in-swift">Develop in Swift Tutorials</a>, I've also been <a href="/blog/explorations-with-swift">sharing my projects on this site's new blog section</a>. I wanted a simple way to include download links for my project files on the site and keep them synced with my git repository for each project.</p>
+<p><strong>Note:</strong> This setup is experimental and is more of an experiment than a guide to best practices.</p>
+<h2>Syncing git repos we want to zip with the website</h2>
+<p>To include our git projects on the website and zip them with the site build, we'll utilize Git's <a href="https://www.git-scm.com/book/en/v2/Git-Tools-Submodules">submodules feature</a>, which allows us to include one project inside another.</p>
+<p>From the root of our 11ty, website, we'll create a new folder for the projects we want to include and add the projects with git:</p>
+<pre><code class="language-bash">$ mkdir static_folders
+$ cd static_folders
+$ git submodule add https://github.com/thatrobotdev/ChatPrototype
+...
+$ git submodule add https://github.com/thatrobotdev/MyselfInSixWords
+...
+$ git submodule add https://github.com/thatrobotdev/OnboardingFlow
+...
+</code></pre>
+<h2>Zipping Projects with Node.js</h2>
+<p>Next, we'll use the Node.js File System API along with a package called node-archiver to zip each project in the &quot;static_folders&quot; directory to a new folder called &quot;static&quot; during the site build.</p>
+<p><code>.eleventy.js</code></p>
+<pre><code class="language-js">function zipStaticFolders(folderPathName) {
+    // Import required modules
+    const fs = require('fs');
+    const path = require('path');
+    const archiver = require('archiver');
+
+    const folderPath = path.resolve(__dirname, folderPathName);
+
+    // Read static folders
+    const results = fs.readdirSync(folderPath);
+
+    // Get all folders inside static folders
+    const folders = results.filter(res =&gt; fs.lstatSync(path.resolve(folderPath, res)).isDirectory());
+
+    // Create a .zip file for each static folder
+    folders.forEach(folder =&gt; {
+        // Create a file to stream archive data to.
+        const output = fs.createWriteStream(__dirname + `/static/${folder}.zip`);
+        const archive = archiver('zip', {
+            zlib: { level: 9 } // Set compression level
+        });
+
+        // Configure archive settings...
+
+        // Pipe archive data to the file
+        archive.pipe(output);
+
+        // Add the archive to the zip
+        archive.directory(`${folderPathName}/${folder}/`, false)
+
+        // Finalise the archive
+        archive.finalize();
+    });
+}
+
+// Run zipStaticFolders while building site
+module.exports = function (eleventyConfig) {
+    zipStaticFolders(&quot;static_folders&quot;);
+};
+</code></pre>
+<h2>Copying Zipped Files with 11ty</h2>
+<p>During the 11ty's site's build step, we'll use <a href="https://www.11ty.dev/docs/copy/">11ty's Passthrough File Copy</a> feature to copy the generated .zip files to the site.</p>
+<p><code>.eleventy.js</code></p>
+<pre><code class="language-js">module.exports = function (eleventyConfig) {
+    zipStaticFolders(&quot;static_folders&quot;);
+
+    // Output directory: _site
+
+    // Copy `static/` to `_site/static`
+    eleventyConfig.addPassthroughCopy(&quot;static&quot;);
+    
+    // Emulate passthrough copy during &quot;--serve&quot;
+    eleventyConfig.setServerPassthroughCopyBehavior(&quot;passthrough&quot;);
+};
+</code></pre>
+<p>And, we're done! Hopefully you found this experiment interesting. I bet there are many easier ways to do this, but for a 2-hour hack, it seems to be working well! :) Thanks for reading!</p>
+
+    </main>
+</body>
+
+</html>
