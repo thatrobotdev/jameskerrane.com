@@ -4,9 +4,10 @@
   "description": "My personal website!",
   "main": "index.js",
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "start": "npx @11ty/eleventy --serve",
-    "debug": "DEBUG=Eleventy* npx @11ty/eleventy"
+    "build": "node config/zipStaticFolders.js && npx @11ty/eleventy",
+    "build:gh-pages": "npx @11ty/eleventy",
+    "start": "node config/zipStaticFolders.js && npx @11ty/eleventy --serve",
+    "debug": "node config/zipStaticFolders.js && DEBUG=Eleventy* npx @11ty/eleventy"
   },
   "keywords": [],
   "author": "",

@@ -220,8 +220,3 @@ package-lock.json
 # Ignore test files
 .cache
 test/stubs-layout-cache/_includes/*.js
-
-# Custom rules
-
-## Zip files are generated at runtime
-static/*.zip 
