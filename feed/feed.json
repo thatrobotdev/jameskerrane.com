@@ -1,0 +1,14 @@
+{
+	"version": "https://jsonfeed.org/version/1.1",
+	"title": "James Kerrane",
+	"language": "en",
+	"home_page_url": "https://www.jameskerrane.com/",
+	"feed_url": "https://www.jameskerrane.com/feed/feed.json",
+	"description": "James Kerrane&#39;s personal website.",
+	"author": {
+		"name": "JP Kerrane",
+		"url": "https://www.jameskerrane.com/about-me/"
+	},
+	"items": [
+	]
+}

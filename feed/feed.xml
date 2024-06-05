@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="en">
+	<title>James Kerrane</title>
+	<subtitle>James Kerrane&#39;s personal website.</subtitle>
+	<link href="https://www.jameskerrane.com/feed/feed.xml" rel="self"/>
+	<link href="https://www.jameskerrane.com/"/>
+	<updated>2024-06-05T06:20:17Z</updated>
+	<id>https://www.jameskerrane.com</id>
+	<author>
+		<name>JP Kerrane</name>
+		<email>hi@jameskerrane.com</email>
+	</author>
+</feed>
