@@ -4,3 +4,6 @@
 [submodule "static_folders/MyselfInSixWords"]
 	path = static_folders/MyselfInSixWords
 	url = https://github.com/thatrobotdev/MyselfInSixWords
+[submodule "static_folders/WeatherForecast"]
+	path = static_folders/WeatherForecast
+	url = https://github.com/thatrobotdev/WeatherForecast/
