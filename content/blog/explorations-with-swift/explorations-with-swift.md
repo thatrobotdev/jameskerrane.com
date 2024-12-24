@@ -7,10 +7,7 @@ I am currently going through Apple's [Develop in Swift Tutorials](https://develo
 
 ## ChatPrototype
 
-{% image
-    "./ChatPrototypeScreenshot.png",
-    "Screenshot of ChatPrototype app on an iPhone with the following conversation: \"¡Holisssss!\" (in a center-aligned yellow bubble with shadow), \"¿Qué onda linda?\" (In a center-aligned cyan bubble with similar styling to previous bubble, the rest of the conversation follows this pattern), \"Nada mucho, solo probando Xcode ;))\", \"¡Buena suerte!\", \"Gracias, ¡adiós!\", \"¡Hasta luego!\""
-%}
+![Screenshot of ChatPrototype app on an iPhone with the following conversation: "¡Holisssss!" (in a center-aligned yellow bubble with shadow), "¿Qué onda linda?" (In a center-aligned cyan bubble with similar styling to previous bubble, the rest of the conversation follows this pattern), "Nada mucho, solo probando Xcode ;))", "¡Buena suerte!", "Gracias, ¡adiós!", "¡Hasta luego!](./ChatPrototypeScreenshot.png)
 
 [GitHub](https://github.com/thatrobotdev/ChatPrototype)
 
@@ -28,10 +25,7 @@ The tutorial recommends additional ways to challenge yourself extending your app
 
 ## MyselfInSixWords
 
-{% image
-    "./MyselfInSixWordsScreenshot.png",
-    "Screenshot of MyselfInSixWords app on an iPhone. An icon of a hand waving appears above the text, \"Hello, world! Here are six words that describe me:\". Beneath the sentence are six words with colored backgrounds. Hacker (with a red background), Brother (with a blue background), Learner (with a green background), Curious (with a cyan background), Dreamer (with a dark blue background), and Optimist (with a yellow background)."
-%}
+![Screenshot of MyselfInSixWords app on an iPhone. An icon of a hand waving appears above the text, "Hello, world! Here are six words that describe me:". Beneath the sentence are six words with colored backgrounds. Hacker (with a red background), Brother (with a blue background), Learner (with a green background), Curious (with a cyan background), Dreamer (with a dark blue background), and Optimist (with a yellow background).](./MyselfInSixWordsScreenshot.png)
 
 [GitHub](https://github.com/thatrobotdev/MyselfInSixWords)
 
@@ -43,10 +37,7 @@ Building this I learned how to utilize a custom [SF Symbols](https://developer.a
 
 ## WeatherForecast
 
-{% image
-    "./WeatherForecastScreenshot.png",
-    "Screenshot of the WeatherForecast app on an iPhone with a title that says \"7-day Forecast\". Underneath the title, a scrolling view with labeled dates (Mon, Tue, Wed, etc.) is shown with sun, rain, and snow icons. Text beneath each icon shows the high and low temperature for each day, with the high appearing in red when it is above 80 degrees. Below the scrolling view is a summary for the week with the average low, high, days of sun, and days of rain."
-%}
+![Screenshot of the WeatherForecast app on an iPhone with a title that says "7-day Forecast". Underneath the title, a scrolling view with labeled dates (Mon, Tue, Wed, etc.) is shown with sun, rain, and snow icons. Text beneath each icon shows the high and low temperature for each day, with the high appearing in red when it is above 80 degrees. Below the scrolling view is a summary for the week with the average low, high, days of sun, and days of rain.](./WeatherForecastScreenshot.png)
 
 [GitHub](https://github.com/thatrobotdev/WeatherForecast)
 

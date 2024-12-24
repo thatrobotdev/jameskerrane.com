@@ -1,5 +1,5 @@
 ---
-layout: layouts/home.njk
+layout: layouts/home.html
 eleventyNavigation:
   key: Blog
   order: 2
@@ -7,4 +7,4 @@ eleventyNavigation:
 <h1>Blog</h1>
 
 {% set postslist = collections.posts %}
-{% include "postslist.njk" %}
+{% include "postslist.html" %}

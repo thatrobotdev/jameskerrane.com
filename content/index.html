@@ -1,5 +1,5 @@
 ---
-layout: layouts/home.njk
+layout: layouts/home.html
 eleventyNavigation:
   key: Home
   order: 1
@@ -30,7 +30,7 @@ numberOfLatestPostsToShow: 3
 
 {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
 {% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
+{% include "postslist.html" %}
 
 {% set morePosts = postsCount - numberOfLatestPostsToShow %}
 {% if morePosts > 0 %}
