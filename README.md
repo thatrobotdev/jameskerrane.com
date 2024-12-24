@@ -2,7 +2,7 @@
 
 My personal website!
 
-This site is built using the static site generator [Eleventy](https://www.11ty.dev/) site generator (using the [v2.0.1 release](https://www.11ty.dev/blog/eleventy-v2/)). Built on top of [11ty/eleventy-base-blog](https://github.com/11ty/eleventy-base-blog).
+This site is built using the static site generator [Eleventy](https://www.11ty.dev/) site generator (using the [v3.0.0 release](https://www.11ty.dev/blog/eleventy-v3/)). Built on top of [11ty/eleventy-base-blog](https://github.com/11ty/eleventy-base-blog).
 
 ## Running Locally
 
