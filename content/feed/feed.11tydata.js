@@ -1,3 +1,1 @@
-module.exports = {
-	eleventyExcludeFromCollections: true
-}
+export const eleventyExcludeFromCollections = true;
