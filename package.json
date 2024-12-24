@@ -3,12 +3,12 @@
 	"version": "1.0.0",
 	"description": "My personal website!",
 	"scripts": {
-		"build": "node config/zipStaticFolders.js && npx @11ty/eleventy",
+		"build": "npx @11ty/eleventy",
 		"build-ghpages": "npx @11ty/eleventy",
-		"start": "node config/zipStaticFolders.js && npx @11ty/eleventy --serve --quiet",
-		"debug": "node config/zipStaticFolders.js && DEBUG=Eleventy* npx @11ty/eleventy",
-		"debugstart": "node config/zipStaticFolders.js && DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
-		"benchmark": "node config/zipStaticFolders.js && DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
+		"start": "npx @11ty/eleventy --serve --quiet",
+		"debug": "DEBUG=Eleventy* npx @11ty/eleventy",
+		"debugstart": "DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
+		"benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
 	},
 	"repository": {
 		"type": "git",
