@@ -17,11 +17,11 @@
 	"author": {
 		"name": "James Kerrane",
 		"email": "hi@jameskerrane.com",
-		"url": "https://jameskerrane.com/"
+		"url": "https://www.jameskerrane.com/"
 	},
 	"license": "MIT",
 	"engines": {
-		"node": ">=14"
+		"node": ">=18"
 	},
 	"bugs": {
 		"url": "https://github.com/thatrobotdev/jameskerrane.com/issues"
