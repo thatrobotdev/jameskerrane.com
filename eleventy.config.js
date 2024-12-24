@@ -18,14 +18,11 @@ export default (function (eleventyConfig) {
 	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
-	// Watch content images for the image pipeline.
-	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
-
 	// App plugins
 	eleventyConfig.addPlugin(pluginDrafts);
-	eleventyConfig.addPlugin(pluginImages);
 
 	// Official plugins
+	eleventyConfig.addPlugin(eleventyImageTransformPlugin);
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 		preAttributes: { tabindex: 0 },

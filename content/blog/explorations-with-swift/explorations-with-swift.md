@@ -1,6 +1,7 @@
 ---
 title: Explorations with Swift
 draft: true
+tags: "swift"
 ---
 
 I am currently going through Apple's [Develop in Swift Tutorials](https://developer.apple.com/tutorials/develop-in-swift), so I thought I would share what I've made as I learn! This isn't my first experience with Swift or Xcode, as I have dabbled for a couple of hours over the past couple of years, but this is my first sustained effort at learning Swift, SwiftUI, and Xcode that I wanted to share!
