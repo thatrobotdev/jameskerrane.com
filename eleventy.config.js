@@ -63,9 +63,10 @@ export default (function (eleventyConfig) {
 		}
 		return Array.from(tagSet);
 	});
+	// Filter out the tags we don't want to include in the tag list
 	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
 		return (tags || []).filter(
-			(tag) => ["all", "nav", "post", "posts"].indexOf(tag) === -1
+			(tag) => ["all", "nav", "post", "posts", "projects"].indexOf(tag) === -1
 		);
 	});
 	// Customize Markdown library settings:
