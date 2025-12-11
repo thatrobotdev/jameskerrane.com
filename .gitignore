@@ -1,6 +1,0 @@
-# Ignore dependencies
-node_modules/
-
-# Ignore site output
-_site/
-.cache
