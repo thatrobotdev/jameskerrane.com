@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en-US">
+
+{%- include head.html -%}
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% link index.md %}#research">Research</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {{ content }}
+    </main>
+
+    {%- include footer.html -%}
+</body>    
+
+</html>

@@ -1,4 +1,12 @@
-MIT License
+---
+layout: base
+---
+
+# License
+
+Everything on this site is licensed under the MIT Licence, unless specified otherwise.
+
+## MIT License
 
 Copyright (c) 2025 James Kerrane
 
