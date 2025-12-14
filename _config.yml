@@ -1,3 +1,6 @@
+url: "https://www.jameskerrane.com"
+baseurl: ""
+
 # Stop GitHub Pages gem from overwriting CSS
 theme: null
 
