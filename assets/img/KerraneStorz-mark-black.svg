@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48.3" height="58.4px" viewBox="0 0 48.3 58.4">
+<style type="text/css">
+	.st0{fill:black;}
+</style>
+<polygon class="st0" points="38.4,22.9 38.4,1.9 9.7,1.9 9.7,33.2 7.8,34.3 7.8,0 40.3,0 40.3,24  "/>
+<polyline class="st0" points="40.3,58.4 38.5,58.4 38.5,29.5 40.3,30.7 40.3,56.6  "/>
+<polygon class="st0" points="7.9,56.6 7.9,40.9 9.7,39.8 9.7,58.4 7.9,58.4  "/>
+<path class="st0" d="M9.7,58.4H0V41.3l16.7-10.2l17,10.7v16.6H24V40.1l1.9,1.2v15.3h6V42.9l-15.2-9.5l-14.9,9v14.2h6"/>
+<polyline class="st0" points="40.4,56.6 46.5,56.6 46.5,32.4 25.9,19.4 25.9,34.7 24,33.5 24,16 48.3,31.4 48.3,58.4 38.5,58.4"/>
+</svg>
